@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6-Modules | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="modules是ES6引入的最重要一个特性。所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
+modules规范分两部分，一部分是如何导出，一部分是如何导入。
+基本用法
+命名导出(named exports)
+
+可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。这种写法非常简洁，和平时几乎没有区别，唯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-Modules">
+<meta property="og:url" content="http://yoursite.com/2016/06/23/ES6-Module/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="modules是ES6引入的最重要一个特性。所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
+modules规范分两部分，一部分是如何导出，一部分是如何导入。
+基本用法
+命名导出(named exports)
+
+可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。这种写法非常简洁，和平时几乎没有区别，唯">
+<meta property="og:updated_time" content="2016-06-23T09:16:18.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6-Modules">
+<meta name="twitter:description" content="modules是ES6引入的最重要一个特性。所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
+modules规范分两部分，一部分是如何导出，一部分是如何导入。
+基本用法
+命名导出(named exports)
+
+可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。这种写法非常简洁，和平时几乎没有区别，唯">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6-Module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/23/ES6-Module/" class="article-date">
+  <time datetime="2016-06-23T08:22:52.000Z" itemprop="datePublished">2016-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6-Modules
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>modules是ES6引入的最重要一个特性。<br>所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。</p>
+<p>modules规范分两部分，一部分是如何导出，一部分是如何导入。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><ol>
+<li>命名导出(named exports)</li>
+</ol>
+<p>可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。<br>这种写法非常简洁，和平时几乎没有区别，唯一的区别就是在需要导出的地方加上一个 <strong>export</strong> 关键字。<br>比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//lib.js</span><br><span class="line">export const sqrt = Math.sqrt;</span><br><span class="line">export function square(x) &#123;</span><br><span class="line">    return x * x;</span><br><span class="line">&#125;</span><br><span class="line">export function diag(x, y) &#123;</span><br><span class="line">    return sqrt(square(x) + square(y));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在另一个文件中这样引用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; square, diag &#125; from &apos;lib&apos;;</span><br><span class="line">console.log(square(11)); // 121</span><br><span class="line">console.log(diag(4, 3));</span><br></pre></td></tr></table></figure></p>
+<p>注意：import { square, diag } from ‘lib’; 是import的特有语法，并不是 destructing 语法，<br>其实import的时候并不是直接把整个模块以对象的形式引入的。下面这种写法是错误的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import lib from &apos;lib&apos;;</span><br><span class="line">square = lib.square;</span><br></pre></td></tr></table></figure></p>
+<p>如果你希望能通过 lib.square 的形式来写，你应该这样导入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import * as lib from &apos;lib&apos;;</span><br><span class="line">square = lib.square;</span><br></pre></td></tr></table></figure></p>
+<p>不过值得注意的一点是，如果你直接用babel编译，执行是会报错的。因为 babel 并不会完全编译 modules，他只是把 ES6 的modules语法编译成了 CMD 的语法，<br>所以还需要用 browserify 之类的工具再次编译一遍。<br>如果你发现 browserify 找不到 lib，可以改成 from ‘./lib’ 试试。</p>
+<ol>
+<li>默认导出</li>
+</ol>
+<p>大家会发现上面的写法比较麻烦，因为必须要指定一个名字。其实很多时候一个模块只导出了一个变量，根本没必要指定一个名字。<br>这时可以使用默认导出，就是指定一个变量作为默认值导出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> //------ myFunc.js ------</span><br><span class="line">export default function () &#123; ... &#125;;</span><br><span class="line"></span><br><span class="line">//------ main1.js ------</span><br><span class="line">import myFunc from &apos;myFunc&apos;;</span><br><span class="line">myFunc();</span><br></pre></td></tr></table></figure></p>
+<p>默认导出的时候不需要指定一个变量名，它默认就是文件名。<br>这里的区别不仅仅是不用写名字，而是 导出的默认值就是模块本身，而不是模块下面的一个属性，<br>即是 import myFunc from ‘myFunc’; 而不是 import {myFunc} from ‘myFunc’;</p>
+<ol>
+<li>命名导出结合默认导出</li>
+</ol>
+<p>默认导出同样可以结合命名导出来使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default function (obj) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line">export function each(obj, iterator, context) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">export &#123; each as forEach &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码导出了一个默认的函数，然后由导出了两个命名函数，我们可以这样导入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import _, &#123; each &#125; from &apos;underscore&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>注意这个逗号语法，分割了默认导出和命名导出</p>
+<p>其实这个默认导出只是一个特殊的名字叫 default，你也可以就直接用他的名字，把它当做命名导出来用，下面两种写法是等价的：</p>
+<p>import { default as foo } from ‘lib’;<br>import foo from ‘lib’;<br>同样的，你也可以通过显示指定 default 名字来做默认导出, 下面两种写法是一样的：</p>
+<p> //—— module1.js ——<br>export default 123;</p>
+<p>//—— module2.js ——<br>const D = 123;<br>export { D as default };<br>仅支持静态导入导出</p>
+<p>ES6规范只支持静态的导入和导出，也就是必须要在编译时就能确定，在运行时才能确定的是不行的，比如下面的代码就是不对的：</p>
+<p>//动态导入<br>var mylib;<br>if (Math.random()) {<br>    mylib = require(‘foo’);<br>} else {<br>    mylib = require(‘bar’);<br>}<br>//动态导出<br>if (Math.random()) {<br>    exports.baz = …;<br>}<br>为什么要这么做，主要是两点：</p>
+<p>性能，在编译阶段即完成所有模块导入，如果在运行时进行会降低速度<br>更好的检查错误，比如对变量类型进行检查<br>各种导入和导出方式总结</p>
+<p>总结一下，ES6提供了如下几种导入方式：</p>
+<p>// Default exports and named exports<br>import theDefault, { named1, named2 } from ‘src/mylib’;<br>import theDefault from ‘src/mylib’;<br>import { named1, named2 } from ‘src/mylib’;</p>
+<p>// Renaming: import named1 as myNamed1<br>import { named1 as myNamed1, named2 } from ‘src/mylib’;</p>
+<p>// Importing the module as an object<br>// (with one property per named export)<br>import * as mylib from ‘src/mylib’;</p>
+<p>// Only load the module, don’t import anything<br>import ‘src/mylib’;<br>如下几种导出方式：</p>
+<p> //命名导出<br>export var myVar1 = …;<br>export let myVar2 = …;<br>export const MY_CONST = …;</p>
+<p>export function myFunc() {<br>    …<br>}<br>export function* myGeneratorFunc() {<br>    …<br>}<br>export class MyClass {<br>    …<br>}<br>// default 导出<br>export default 123;<br>export default function (x) {<br>    return x<br>};<br>export default x =&gt; x;<br>export default class {<br>    constructor(x, y) {<br>        this.x = x;<br>        this.y = y;<br>    }<br>};<br>//也可以自己列出所有导出内容<br>const MY_CONST = …;<br>function myFunc() {<br>    …<br>}</p>
+<p>export { MY_CONST, myFunc };<br>//或者在导出的时候给他们改个名字<br>export { MY_CONST as THE_CONST, myFunc as theFunc };</p>
+<p>//还可以导出从其他地方导入的模块<br>export * from ‘src/other_module’;<br>export { foo, bar } from ‘src/other_module’;<br>export { foo as myFoo, bar } from ‘src/other_module’;<br>注：<br>主要参考这篇文章：<a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">http://www.2ality.com/2014/09/es6-modules-final.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/23/ES6-Module/" data-id="cipt54lvq000anoamrqct16o2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/23/ES6-Class/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6-Class</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/23/ES6-Module/">ES6-Modules</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/23/ES6-Class/">ES6-Class</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/23/四种常见的-POST-提交数据方式/">四种常见的 POST 提交数据方式</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/23/ES6-Set-WeakSet/">ES6-Set-WeakSet</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/23/ES6-Map-WeakMap/">ES6-Map-WeakMap</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
