@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6-新特性 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ES2015 字符串新增特性在原来字符串的基础上，ES2015对其进行了功能增强和扩展。
+
+字符串的遍历器接口:ES2015为字符串新增了遍历器接口。那么我们就可以对字符串使用展开运算符和for of循环，下面是两段代码实例:
+123456let str = &quot;易企秀&quot;;console.log([...str]);for (let char of &quot;易企秀&quot;) &amp;#123;  console.lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-新特性">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/ES6-新特性/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ES2015 字符串新增特性在原来字符串的基础上，ES2015对其进行了功能增强和扩展。
+
+字符串的遍历器接口:ES2015为字符串新增了遍历器接口。那么我们就可以对字符串使用展开运算符和for of循环，下面是两段代码实例:
+123456let str = &quot;易企秀&quot;;console.log([...str]);for (let char of &quot;易企秀&quot;) &amp;#123;  console.lo">
+<meta property="og:image" content="http://yoursite.com/images/Number-01.png">
+<meta property="og:image" content="http://yoursite.com/images/Number-02.png">
+<meta property="og:image" content="http://yoursite.com/images/Array-01.png">
+<meta property="og:image" content="http://yoursite.com/images/Array-02.png">
+<meta property="og:image" content="http://yoursite.com/images/Array-03.png">
+<meta property="og:updated_time" content="2016-06-24T08:01:34.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6-新特性">
+<meta name="twitter:description" content="ES2015 字符串新增特性在原来字符串的基础上，ES2015对其进行了功能增强和扩展。
+
+字符串的遍历器接口:ES2015为字符串新增了遍历器接口。那么我们就可以对字符串使用展开运算符和for of循环，下面是两段代码实例:
+123456let str = &quot;易企秀&quot;;console.log([...str]);for (let char of &quot;易企秀&quot;) &amp;#123;  console.lo">
+<meta name="twitter:image" content="http://yoursite.com/images/Number-01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ES6-新特性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/24/ES6-新特性/" class="article-date">
+  <time datetime="2016-06-24T03:05:52.000Z" itemprop="datePublished">2016-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6-新特性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ES2015-字符串新增特性"><a href="#ES2015-字符串新增特性" class="headerlink" title="ES2015 字符串新增特性"></a>ES2015 字符串新增特性</h2><p>在原来字符串的基础上，ES2015对其进行了功能增强和扩展。</p>
+<ol>
+<li><p>字符串的遍历器接口:ES2015为字符串新增了遍历器接口。<br>那么我们就可以对字符串使用展开运算符和for of循环，下面是两段代码实例:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> str = <span class="string">"易企秀"</span>;</span><br><span class="line">console.log([...str]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> char of <span class="string">"易企秀"</span>) &#123;</span><br><span class="line">  console.log(char);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板字符串:<br>使用模板字符串可以极大的减少代码量，更加清晰。<br>模板字符串使用反引号 (<code> </code>) 来替代普通字符串中的用双引号和单引号。<br>模板字符串通常和${}占位符结合使用。</p>
+</li>
+<li><p>ES2015新增字符串方法列表:<br>下面是ES2015新增的字串方法。<br>方法                         描述<br>String.fromCodePoint()    //从Unicode码点值中返回为一个字符。<br>codePointAt()            //能够返回字符串中指定位置字符的Unicode字符的码点值。<br>endsWith()                //判断字符串是否以指定的子字符串结尾。<br>includes()                //判断一个字符串是否包含另一个字符串。<br>normalize()<br>repeat()                    //构造并返回一个重复当前字符串若干次数的新字符串。<br>startsWith()                //判断当前字符串是否是以另外一个子字符串开头。<br>String.raw()                //返回模板字符串的原始字符串形式。</p>
+</li>
+</ol>
+<h2 id="ES2015-Number对象新增特性"><a href="#ES2015-Number对象新增特性" class="headerlink" title="ES2015 Number对象新增特性:"></a>ES2015 Number对象新增特性:</h2><p>   在原来ES规范基础上，ES2015对数值类型一些规范做了少许修改，并增加了一些新的方法。</p>
+<ol>
+<li>parseInt()和parseFloat()方法:<br>在ES2015之前，这两个方法属于全局对象，现在移植到了Number对象之上，作用完全没有改变。<br>ES5的Number 方法如下：<br><img src="/images/Number-01.png" alt="Number-01"><br>（1）Number.parseInt()可以参阅javascript parseInt()一章节。<br>（2）Number.parseFloat()可以参阅javascript parseFloat()一章节。<br>这么做为了减少全局方法的使用，逐步实现语言的模块化。</li>
+<li><p>ES2015新增方法和属性列表:<br> <img src="/images/Number-02.png" alt="Number-02"></p>
+<h2 id="ES2015-数组新增特性"><a href="#ES2015-数组新增特性" class="headerlink" title="ES2015 数组新增特性:"></a>ES2015 数组新增特性:</h2><p>在原有数组的基础上，ES2015为数组新增了若干方法和语法。<br>ES6之前的Array 属性、方法如下：<br><img src="/images/Array-01.png" alt="Array-01"><br><img src="/images/Array-02.png" alt="Array-02"></p>
+<p>Es6数组新增方法：<br><img src="/images/Array-03.png" alt="Array-03"></p>
+</li>
+<li><p>ES2015为数组新增了遍历器接口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var oneArr = [1, 2, 3];</span><br><span class="line">var twoArr = [4, 5, 6];</span><br><span class="line">oneArr.push(...twoArr);</span><br><span class="line">console.log(oneArr);</span><br><span class="line">//上面的代码实现了数组合并功能。</span><br><span class="line"></span><br><span class="line">var arr = [1, 2, 3];</span><br><span class="line">for(let ele of arr) &#123;</span><br><span class="line">  console.log(ele);</span><br><span class="line">&#125;</span><br><span class="line">//上面的代码可以遍历数组的每一个元素。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="ES2015-函数新增特性"><a href="#ES2015-函数新增特性" class="headerlink" title="ES2015 函数新增特性"></a>ES2015 函数新增特性</h2><ol>
+<li>函数参数的默认值:<br>在ES2015之前，函数并没有默认值这个概念，不过可以模拟实现。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function func(name, param) &#123;</span><br><span class="line">  param = param ||&quot;default&quot;;</span><br><span class="line">  console.log(name, param);</span><br><span class="line">&#125;</span><br><span class="line">func(&quot;易企秀&quot;);</span><br><span class="line">func(&quot;易企秀&quot;,0);</span><br><span class="line">func(&quot;易企秀&quot;,&apos;&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>但是上面的写法是有缺陷的，假入为第二个参数传入一个空字符串,0,false 时，将不能正常使用。<br>ES2015为函数添加默认参数，代码实例如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function func(name, param=&apos;default&apos;) &#123;</span><br><span class="line">  console.log(name, param);</span><br><span class="line">&#125;</span><br><span class="line">func(&quot;易企秀&quot;);</span><br><span class="line">func(&quot;易企秀&quot;,0);</span><br><span class="line">func(&quot;易企秀&quot;,&apos;&apos;);</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>函数参数的解构赋值:<br>ES2015允许函数的参数是解构赋值的模式。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function func(&#123;x,y&#125;) &#123;</span><br><span class="line">  console.log(x,y);</span><br><span class="line">&#125;</span><br><span class="line">func(&#123;&#125;);</span><br><span class="line">func(&#123;x:1,y:2&#125;);</span><br><span class="line">func(&#123;x:3&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>func()函数的参数是解构赋值等号左侧的模式部分。<br>那么这时候函数参数的传递就是解构赋值。上面的函数如果不传递参数会报错:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function func(&#123;x,y&#125;) &#123;</span><br><span class="line">  console.log(x,y);</span><br><span class="line">&#125;</span><br><span class="line">func();</span><br><span class="line">//Uncaught TypeError: Cannot match against &apos;undefined&apos; or &apos;null&apos;.</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码会报错，因为参数的解构赋值等同于:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let &#123;x,y&#125;=undefined</span><br></pre></td></tr></table></figure></p>
+<p>函数的参数也可以是数组的解构赋值，代码实例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function func([x,y]) &#123;</span><br><span class="line">  console.log(x,y);</span><br><span class="line">&#125;</span><br><span class="line">func([1,2]);</span><br></pre></td></tr></table></figure></p>
+<p>参数的解构赋值也可以使用默认值，代码实例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function func(&#123;x = 0, y = 0&#125; = &#123;&#125;) &#123;</span><br><span class="line">  console.log(x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>先对上面的函数做一下简单说明:<br>（1）.函数的参数是{x = 0, y = 0}，不要把x和y认作为参数，函数参数的默认值是{}，而不是0。<br>（2）.x和y是解构赋值模式中的变量，0是变量的默认值。<br>代码实例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function func(&#123;x = 0, y = 0&#125; = &#123;x:1&#125;) &#123;</span><br><span class="line">  console.log(x, y);</span><br><span class="line">&#125;</span><br><span class="line">func();         //1, 0</span><br><span class="line">func(&#123;&#125;);       //0, 0</span><br><span class="line">func(&#123;x:2&#125;);    //2, 0</span><br><span class="line">func(&#123;x:3,y:4&#125;);//3, 4</span><br><span class="line"></span><br><span class="line">&#123;x = 0, y = 0&#125; **= &#123;x:1&#125;**</span><br><span class="line">的作用是 保证直接调用函数时，不报错。</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>rest参数:<br>ES2015为函数新增了rest参数，用来获取函数剩余的参数。<br>它会将多余的参数放置于一个数组中。<br>代码实例如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function func(...args) &#123;</span><br><span class="line">  for (var arg of args) &#123;</span><br><span class="line">    console.log(arg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">func(1, 2, 3);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面代码中，函数的参数就是rest参数，展开运算符后面是一个数组，它里面存放了剩余的参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function func(firstArg,...args) &#123;</span><br><span class="line">  for (var arg of args) &#123;</span><br><span class="line">    console.log(arg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">func(1, 2, 3);</span><br></pre></td></tr></table></figure></p>
+<p><strong>因为是获取剩余的参数，所以rest参数只能是最后一个参数</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function func(...args,lastParam) &#123;</span><br><span class="line">  for (var arg of args) &#123;</span><br><span class="line">    console.log(arg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">func(1, 2, 3);</span><br><span class="line">//VM1385:1 Uncaught SyntaxError: Rest parameter must be last formal parameter(…)</span><br></pre></td></tr></table></figure></p>
+<p>四.函数的length属性:<br>在ES5中，length属性可以获取函数形式参数的个数。<br>代码实例如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function func(x,y,z) &#123;</span><br><span class="line">  //code</span><br><span class="line">&#125;</span><br><span class="line">console.log(func.length);</span><br></pre></td></tr></table></figure></p>
+<p>ES2015以后，如果参数带有默认值，那么这个length值将有所不同。它将返回第一个具有默认值的参数前面参数的数目。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function func(x=1,y,z) &#123;</span><br><span class="line">  //code</span><br><span class="line">&#125;</span><br><span class="line">console.log(func.length);</span><br></pre></td></tr></table></figure></p>
+<p>输出值为0，因为x前面已经没有参数了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function func(x,y=1,z,w) &#123;</span><br><span class="line">  //code</span><br><span class="line">&#125;</span><br><span class="line">console.log(func.length);</span><br></pre></td></tr></table></figure></p>
+<p>返回值是1，因为y前面只有一个参数。</p>
+<h2 id="ES2015-对象新增特性"><a href="#ES2015-对象新增特性" class="headerlink" title="ES2015 对象新增特性:"></a>ES2015 对象新增特性:</h2><p>  在原有对象基础上，ES2015新增了若干方法和语法结构。</p>
+<ol>
+<li>属性简写: ES2015允许对象属性简写(如果属性值等于属性名所代表的变量值，那么就可以缩写)</li>
+<li>方法简写: 如果对象的属性值是方法，那么也是可以进行缩写的。</li>
+<li>Generator函数同样可以进行简写。</li>
+<li>属性名的写法:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;;</span><br><span class="line">obj.webName = &quot;test&quot;;       //标识符作为变量名，标识符永远都是字符串</span><br><span class="line">obj.class = &quot;test&quot;;         //标识符是字符串，所以使用&quot;class&quot;作为属性名也不会出错。</span><br><span class="line">var age= &quot;age&quot;;</span><br><span class="line">obj[age] = 24;              //使用表达式方式创建对象属性</span><br><span class="line"></span><br><span class="line">Object.defineProperty(obj,&quot;address&quot;,&#123; //使用Object.defineProperty()方法为对象创建属性。</span><br><span class="line">    value:&quot;北京市海淀区&quot;,</span><br><span class="line">    writable:true,</span><br><span class="line">    enumerable:true,</span><br><span class="line">    configurable:true</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">在ES2015以前，对象直接量中定义属性，只能使用标识符方式，无法使用表达式方式:</span><br><span class="line">let propKey = &quot;webName&quot;;</span><br><span class="line">let obj = &#123;</span><br><span class="line">  //es2015之前，这种写法是错误的</span><br><span class="line">  [propKey]: &quot;propKey&quot;,</span><br><span class="line">  address:&quot;北京市海淀区&quot;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(obj.webName);</span><br><span class="line"></span><br><span class="line">//如果属性名称是Symbol类型，则必须使用表达式方式:</span><br><span class="line">var symbol = Symbol(&quot;antzone&quot;);</span><br><span class="line">var obj = &#123;</span><br><span class="line">  [symbol]: &quot;symbol&quot;</span><br><span class="line">&#125;;</span><br><span class="line">console.log(obj[symbol])</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/24/ES6-新特性/" data-id="cipth68p1000b6camx46ajxw7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/24/ES6-Iterator遍历器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES6-Iterator遍历器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/23/ES6-Module/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6-Modules</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/06/24/ES6-For-of-循环/">ES6-For of 循环</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/24/ES6-Iterator遍历器/">ES6-Iterator遍历器</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/24/ES6-新特性/">ES6-新特性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/23/ES6-Module/">ES6-Modules</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/23/ES6-Class/">ES6-Class</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

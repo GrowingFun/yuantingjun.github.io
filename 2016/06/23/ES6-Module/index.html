@@ -5,31 +5,19 @@
   
   <title>ES6-Modules | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="modules是ES6引入的最重要一个特性。所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
-modules规范分两部分，一部分是如何导出，一部分是如何导入。
-基本用法
-命名导出(named exports)
-
-可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。这种写法非常简洁，和平时几乎没有区别，唯">
+  <meta name="description" content="ES2015 Module模块:在ES2015之前，javascript并没有内置的模块体系。但是为了实现模块化加载，制定了一些模块化加载方案，最为典型的就是CommonJS和AMD。ES2015内置了模块化功能，这将有助于大型项目的开发。特别说明:ES2015模块天然采用严格模式，无需人为声明。
+所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserif">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6-Modules">
 <meta property="og:url" content="http://yoursite.com/2016/06/23/ES6-Module/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="modules是ES6引入的最重要一个特性。所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
-modules规范分两部分，一部分是如何导出，一部分是如何导入。
-基本用法
-命名导出(named exports)
-
-可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。这种写法非常简洁，和平时几乎没有区别，唯">
-<meta property="og:updated_time" content="2016-06-23T09:16:18.597Z">
+<meta property="og:description" content="ES2015 Module模块:在ES2015之前，javascript并没有内置的模块体系。但是为了实现模块化加载，制定了一些模块化加载方案，最为典型的就是CommonJS和AMD。ES2015内置了模块化功能，这将有助于大型项目的开发。特别说明:ES2015模块天然采用严格模式，无需人为声明。
+所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserif">
+<meta property="og:updated_time" content="2016-06-24T08:24:11.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6-Modules">
-<meta name="twitter:description" content="modules是ES6引入的最重要一个特性。所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。
-modules规范分两部分，一部分是如何导出，一部分是如何导入。
-基本用法
-命名导出(named exports)
-
-可以直接在任何变量或者函数前面加上一个 export 关键字，就可以将它导出。这种写法非常简洁，和平时几乎没有区别，唯">
+<meta name="twitter:description" content="ES2015 Module模块:在ES2015之前，javascript并没有内置的模块体系。但是为了实现模块化加载，制定了一些模块化加载方案，最为典型的就是CommonJS和AMD。ES2015内置了模块化功能，这将有助于大型项目的开发。特别说明:ES2015模块天然采用严格模式，无需人为声明。
+所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserif">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -100,7 +88,8 @@ modules规范分两部分，一部分是如何导出，一部分是如何导入�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>modules是ES6引入的最重要一个特性。<br>所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。</p>
+        <h1 id="ES2015-Module模块"><a href="#ES2015-Module模块" class="headerlink" title="ES2015 Module模块:"></a>ES2015 Module模块:</h1><p>在ES2015之前，javascript并没有内置的模块体系。<br>但是为了实现模块化加载，制定了一些模块化加载方案，最为典型的就是CommonJS和AMD。<br>ES2015内置了模块化功能，这将有助于大型项目的开发。<br>特别说明:ES2015模块天然采用严格模式，无需人为声明。</p>
+<p>所以以后再写模块，直接按照ES6的modules语法来写，然后用 babel + browserify 来打包就行了。</p>
 <p>modules规范分两部分，一部分是如何导出，一部分是如何导入。</p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><ol>
 <li>命名导出(named exports)</li>
@@ -121,27 +110,21 @@ modules规范分两部分，一部分是如何导出，一部分是如何导入�
 <p>默认导出同样可以结合命名导出来使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default function (obj) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line">export function each(obj, iterator, context) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">export &#123; each as forEach &#125;;</span><br></pre></td></tr></table></figure></p>
 <p>上面的代码导出了一个默认的函数，然后由导出了两个命名函数，我们可以这样导入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import _, &#123; each &#125; from &apos;underscore&apos;;</span><br></pre></td></tr></table></figure></p>
 <p>注意这个逗号语法，分割了默认导出和命名导出</p>
-<p>其实这个默认导出只是一个特殊的名字叫 default，你也可以就直接用他的名字，把它当做命名导出来用，下面两种写法是等价的：</p>
-<p>import { default as foo } from ‘lib’;<br>import foo from ‘lib’;<br>同样的，你也可以通过显示指定 default 名字来做默认导出, 下面两种写法是一样的：</p>
-<p> //—— module1.js ——<br>export default 123;</p>
-<p>//—— module2.js ——<br>const D = 123;<br>export { D as default };<br>仅支持静态导入导出</p>
+<p>其实这个默认导出只是一个特殊的名字叫 default，你也可以就直接用他的名字，把它当做命名导出来用，下面两种写法是等价的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; default as foo &#125; from &apos;lib&apos;;</span><br><span class="line">import foo from &apos;lib&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>同样的，你也可以通过显示指定 default 名字来做默认导出, 下面两种写法是一样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> //------ module1.js ------</span><br><span class="line">export default 123;</span><br><span class="line"></span><br><span class="line">//------ module2.js ------</span><br><span class="line">const D = 123;</span><br><span class="line">export &#123; D as default &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>仅支持静态导入导出</p>
 <p>ES6规范只支持静态的导入和导出，也就是必须要在编译时就能确定，在运行时才能确定的是不行的，比如下面的代码就是不对的：</p>
-<p>//动态导入<br>var mylib;<br>if (Math.random()) {<br>    mylib = require(‘foo’);<br>} else {<br>    mylib = require(‘bar’);<br>}<br>//动态导出<br>if (Math.random()) {<br>    exports.baz = …;<br>}<br>为什么要这么做，主要是两点：</p>
+<p>//动态导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var mylib;</span><br><span class="line">if (Math.random()) &#123;</span><br><span class="line">    mylib = require(&apos;foo&apos;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    mylib = require(&apos;bar&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>//动态导出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (Math.random()) &#123;</span><br><span class="line">    exports.baz = ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为什么要这么做，主要是两点：</p>
 <p>性能，在编译阶段即完成所有模块导入，如果在运行时进行会降低速度<br>更好的检查错误，比如对变量类型进行检查<br>各种导入和导出方式总结</p>
-<p>总结一下，ES6提供了如下几种导入方式：</p>
-<p>// Default exports and named exports<br>import theDefault, { named1, named2 } from ‘src/mylib’;<br>import theDefault from ‘src/mylib’;<br>import { named1, named2 } from ‘src/mylib’;</p>
-<p>// Renaming: import named1 as myNamed1<br>import { named1 as myNamed1, named2 } from ‘src/mylib’;</p>
-<p>// Importing the module as an object<br>// (with one property per named export)<br>import * as mylib from ‘src/mylib’;</p>
-<p>// Only load the module, don’t import anything<br>import ‘src/mylib’;<br>如下几种导出方式：</p>
-<p> //命名导出<br>export var myVar1 = …;<br>export let myVar2 = …;<br>export const MY_CONST = …;</p>
-<p>export function myFunc() {<br>    …<br>}<br>export function* myGeneratorFunc() {<br>    …<br>}<br>export class MyClass {<br>    …<br>}<br>// default 导出<br>export default 123;<br>export default function (x) {<br>    return x<br>};<br>export default x =&gt; x;<br>export default class {<br>    constructor(x, y) {<br>        this.x = x;<br>        this.y = y;<br>    }<br>};<br>//也可以自己列出所有导出内容<br>const MY_CONST = …;<br>function myFunc() {<br>    …<br>}</p>
-<p>export { MY_CONST, myFunc };<br>//或者在导出的时候给他们改个名字<br>export { MY_CONST as THE_CONST, myFunc as theFunc };</p>
-<p>//还可以导出从其他地方导入的模块<br>export * from ‘src/other_module’;<br>export { foo, bar } from ‘src/other_module’;<br>export { foo as myFoo, bar } from ‘src/other_module’;<br>注：<br>主要参考这篇文章：<a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">http://www.2ality.com/2014/09/es6-modules-final.html</a></p>
+<p>总结一下，ES6提供了如下几种导入方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">// Default exports and named exports</span><br><span class="line">import theDefault, &#123; named1, named2 &#125; from &apos;src/mylib&apos;;</span><br><span class="line">import theDefault from &apos;src/mylib&apos;;</span><br><span class="line">import &#123; named1, named2 &#125; from &apos;src/mylib&apos;;</span><br><span class="line"></span><br><span class="line">// Renaming: import named1 as myNamed1</span><br><span class="line">import &#123; named1 as myNamed1, named2 &#125; from &apos;src/mylib&apos;;</span><br><span class="line"></span><br><span class="line">// Importing the module as an object</span><br><span class="line">// (with one property per named export)</span><br><span class="line">import * as mylib from &apos;src/mylib&apos;;</span><br><span class="line"></span><br><span class="line">// Only load the module, don’t import anything</span><br><span class="line">import &apos;src/mylib&apos;;</span><br><span class="line">如下几种导出方式：</span><br><span class="line"></span><br><span class="line"> //命名导出</span><br><span class="line">export var myVar1 = ...;</span><br><span class="line">export let myVar2 = ...;</span><br><span class="line">export const MY_CONST = ...;</span><br><span class="line"></span><br><span class="line">export function myFunc() &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">export function* myGeneratorFunc() &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">export class MyClass &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">// default 导出</span><br><span class="line">export default 123;</span><br><span class="line">export default function (x) &#123;</span><br><span class="line">    return x</span><br><span class="line">&#125;;</span><br><span class="line">export default x =&gt; x;</span><br><span class="line">export default class &#123;</span><br><span class="line">    constructor(x, y) &#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">//也可以自己列出所有导出内容</span><br><span class="line">const MY_CONST = ...;</span><br><span class="line">function myFunc() &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123; MY_CONST, myFunc &#125;;</span><br><span class="line">//或者在导出的时候给他们改个名字</span><br><span class="line">export &#123; MY_CONST as THE_CONST, myFunc as theFunc &#125;;</span><br><span class="line"></span><br><span class="line">//还可以导出从其他地方导入的模块</span><br><span class="line">export * from &apos;src/other_module&apos;;</span><br><span class="line">export &#123; foo, bar &#125; from &apos;src/other_module&apos;;</span><br><span class="line">export &#123; foo as myFoo, bar &#125; from &apos;src/other_module&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>注：<br>主要参考这篇文章：<a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">http://www.2ality.com/2014/09/es6-modules-final.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/ES6-Module/" data-id="cipt54lvq000anoamrqct16o2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/ES6-Module/" data-id="cipth68ok00066camuirbs4yn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -151,6 +134,15 @@ modules规范分两部分，一部分是如何导出，一部分是如何导入�
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/06/24/ES6-新特性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES6-新特性
+        
+      </div>
+    </a>
   
   
     <a href="/2016/06/23/ES6-Class/" id="article-nav-older" class="article-nav-link-wrap">
@@ -206,23 +198,23 @@ modules规范分两部分，一部分是如何导出，一部分是如何导入�
       <ul>
         
           <li>
+            <a href="/2016/06/24/ES6-For-of-循环/">ES6-For of 循环</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/24/ES6-Iterator遍历器/">ES6-Iterator遍历器</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/24/ES6-新特性/">ES6-新特性</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/23/ES6-Module/">ES6-Modules</a>
           </li>
         
           <li>
             <a href="/2016/06/23/ES6-Class/">ES6-Class</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/23/四种常见的-POST-提交数据方式/">四种常见的 POST 提交数据方式</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/23/ES6-Set-WeakSet/">ES6-Set-WeakSet</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/23/ES6-Map-WeakMap/">ES6-Map-WeakMap</a>
           </li>
         
       </ul>
