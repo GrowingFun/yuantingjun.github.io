@@ -64,6 +64,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/01/JavaScript事件/" class="article-date">
+  <time datetime="2016-07-01T02:49:30.000Z" itemprop="datePublished">2016-07-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/JavaScript事件/">&#39;JavaScript事件&#39;</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://yujiangshui.com/javascript-event/" target="_blank" rel="external">http://yujiangshui.com/javascript-event/</a></p>
+<p>发布（Publish）和订阅（Subscribe）模式</p>
+<p>针对上面这种用法，继续抽象一下，就是发布和订阅开发模式。正如其名，这种模式有两个角色：<strong>发布者和订阅者，此外有一条信道</strong>，<br><strong>发布者被触发往这个信道里面发信，订阅者从这个信道里面收信，如果收到特定信件则执行某个对应的逻辑</strong>。这样，发布者和订阅者之间是完全解耦的，<br>只有一条信道连接。这样就非常容易扩展，也不会引入额外的依赖。</p>
+<p>这样如果需要添加新功能，只需要添加一个新的订阅者（及其执行逻辑），监听信道中某一类新的信件。再在应用中通过发布者发送一类新的信件即可。</p>
+<p>具体实现，这里推荐 cowboy 开发的 Tiny Pub Sub <a href="https://github.com/cowboy/jquery-tiny-pubsub.git" target="_blank" rel="external">Tiny Pub Sub</a>，通过 jQuery 实现，非常简洁直观，jQuery 太赞。代码就这几行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>($) &#123;</span><br><span class="line"></span><br><span class="line">  var o = $(&#123;&#125;);</span><br><span class="line"></span><br><span class="line">  $.subscribe = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    o.on.apply(o, arguments);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  $.unsubscribe = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    o.off.apply(o, arguments);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  $.publish = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    o.trigger.apply(o, arguments);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">&#125;(jQuery));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$( <span class="string">"div"</span> ).on( <span class="string">"click"</span>, <span class="keyword">function</span>( event, person ) &#123;</span><br><span class="line">  alert( <span class="string">"Hello, "</span> + person.name );</span><br><span class="line">&#125;);</span><br><span class="line">$( <span class="string">"div"</span> ).trigger( <span class="string">"click"</span>, &#123; name: <span class="string">"Jim"</span> &#125; );</span><br></pre></td></tr></table></figure></p>
+<p>定义一个对象作为信道，然后提供了三个方法，订阅者、取消订阅、发布者。</p>
+<p>demo:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"jquery.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"dist/tiny-pubsub.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">// Creates a <span class="string">"named"</span> logging function.</span><br><span class="line"><span class="keyword">function</span> createLogger(name) &#123;</span><br><span class="line">  <span class="built_in">return</span> <span class="keyword">function</span>(_, a, b) &#123;</span><br><span class="line">    // Skip the first argument (event object) but <span class="built_in">log</span> the name and other args.</span><br><span class="line">    console.log(name, a, b);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Subscribe to the <span class="string">"foo"</span> topic (<span class="built_in">bind</span> to the <span class="string">"foo"</span> event, no namespace).</span><br><span class="line">$.subscribe(<span class="string">'foo'</span>, createLogger(<span class="string">'foo'</span>));</span><br><span class="line">// Subscribe to the <span class="string">"foo.bar"</span> topic (<span class="built_in">bind</span> to the <span class="string">"foo"</span> event, <span class="string">"bar"</span> namespace).</span><br><span class="line">$.subscribe(<span class="string">'foo.bar'</span>, createLogger(<span class="string">'foo.bar'</span>));</span><br><span class="line">// Subscribe to the <span class="string">"foo.baz"</span> topic (<span class="built_in">bind</span> to the <span class="string">"foo"</span> event, <span class="string">"baz"</span> namespace).</span><br><span class="line">$.subscribe(<span class="string">'foo.baz'</span>, createLogger(<span class="string">'foo.baz'</span>));</span><br><span class="line"></span><br><span class="line">// Publish arbitrary values.</span><br><span class="line">$.publish(<span class="string">'foo'</span>, [1, 2]);</span><br><span class="line">// logs:</span><br><span class="line">// foo 1 2</span><br><span class="line">// foo.bar 1 2</span><br><span class="line">// foo.baz 1 2</span><br><span class="line"></span><br><span class="line">$.publish(<span class="string">'foo.bar'</span>, [3, 4]);</span><br><span class="line">// logs:</span><br><span class="line">// foo.bar 3 4</span><br><span class="line"></span><br><span class="line">$.publish(<span class="string">'foo.baz'</span>, [5, 6]);</span><br><span class="line">// logs:</span><br><span class="line">// foo.baz 5 6</span><br><span class="line"></span><br><span class="line">$.unsubscribe(<span class="string">'foo.bar'</span>);</span><br><span class="line">$.publish(<span class="string">'foo'</span>, [7, 8]);</span><br><span class="line">// logs:</span><br><span class="line">// foo 7 8</span><br><span class="line">// foo.baz 7 8</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>说明：<br>apply() 方法在指定 this 值和参数（参数以数组或类数组对象的形式存在）的情况下调用某个函数。<br>参数</p>
+<p>thisArg<br>在 fun 函数运行时指定的 this 值。需要注意的是，指定的 this 值并不一定是该函数执行时真正的 this 值，如果这个函数处于非严格模式下，则指定为 null 或 undefined 时会自动指向全局对象（浏览器中就是window对象），同时值为原始值（数字，字符串，布尔值）的 this 会指向该原始值的自动包装对象。<br>argsArray<br>一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 fun 函数。如果该参数的值为null 或 undefined，则表示不需要传入任何参数。从ECMAScript 5 开始可以使用类数组对象。浏览器兼容性请参阅本文底部内容。</p>
+<p>注意：该函数的语法与call()方法的语法几乎完全相同，唯一的区别在于，call()方法接受的是一个参数列表，而apply()方法接受的是一个包含多个参数的数组（或类数组对象）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/01/JavaScript事件/" data-id="ciq378tam0006h4am7kg6d8tg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript事件/">JavaScript事件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ES6-For-of-循环" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/06/24/ES6-For-of-循环/" class="article-date">
@@ -98,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/ES6-For-of-循环/" data-id="ciptg78w9000ij8amzn15pf1a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/ES6-For-of-循环/" data-id="ciq378tah0003h4am244t34ac" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -152,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/ES6-Iterator遍历器/" data-id="ciptduyge000gj8amxlnbsz7s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/ES6-Iterator遍历器/" data-id="ciq378tas0008h4amppfjtehs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -242,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/24/ES6-新特性/" data-id="cipt5o2pr000ej8am9unn0gas" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/24/ES6-新特性/" data-id="ciq378tbp000kh4amyvjk4ixu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -312,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/ES6-Module/" data-id="cipt5eksy0003j8amj5n9dbek" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/ES6-Module/" data-id="ciq378t9y0000h4amzx7l6k17" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -379,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/ES6-Class/" data-id="cipt5ekr90000j8am8pi8fk7i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/ES6-Class/" data-id="ciq378ta70001h4ams7je2w4g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -426,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/四种常见的-POST-提交数据方式/" data-id="cipt5ekte0008j8amujhk3qe5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/四种常见的-POST-提交数据方式/" data-id="ciq378taz000bh4aml05romh1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
@@ -476,7 +524,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/ES6-Set-WeakSet/" data-id="cipt5ekt10004j8ami9xi7k4z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/ES6-Set-WeakSet/" data-id="ciq378tak0004h4am4hinw95b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -545,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/23/ES6-Map-WeakMap/" data-id="cipt5ekrw0001j8amjuyhdwv9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/23/ES6-Map-WeakMap/" data-id="ciq378tbr000lh4amy3ag08js" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
@@ -596,7 +644,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/22/hexo搭建注意事项/" data-id="cipt5ekt60006j8amrzjlwf50" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/06/22/hexo搭建注意事项/" data-id="ciq378tbm000jh4amrg2r1p8r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -618,7 +666,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript事件/">JavaScript事件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li></ul>
     </div>
   </div>
 
@@ -628,7 +676,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a>
+      <a href="/tags/ES6/" style="font-size: 20px;">ES6</a> <a href="/tags/JavaScript事件/" style="font-size: 10px;">JavaScript事件</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a>
     </div>
   </div>
 
@@ -637,7 +685,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li></ul>
     </div>
   </div>
 
@@ -648,6 +696,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/07/01/JavaScript事件/">&#39;JavaScript事件&#39;</a>
+          </li>
         
           <li>
             <a href="/2016/06/24/ES6-For-of-循环/">ES6-For of 循环</a>
@@ -663,10 +715,6 @@
         
           <li>
             <a href="/2016/06/23/ES6-Module/">ES6-Modules</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/23/ES6-Class/">ES6-Class</a>
           </li>
         
       </ul>
